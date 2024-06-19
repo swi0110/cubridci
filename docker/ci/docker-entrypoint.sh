@@ -57,8 +57,12 @@ function run_test ()
 {
   run_checkout
 
-  #CUBRIDQA-1093. disable reuse_oid 
+  
   cd $WORKDIR/cubrid-testtools
+  # build the CTP
+  ant
+
+  #CUBRIDQA-1093. disable reuse_oid
   CTP/bin/ini.sh -s sql/cubrid.conf CTP/conf/medium.conf create_table_reuseoid no
   cd -
 
